@@ -60,6 +60,9 @@ task :post_to_bluesky => :environment do
     # We record that the article has been posted.
     article.is_posted_to_bluesky = true
     article.save
+    
+    # We pause for two seconds.
+    sleep( 2 )
   end
 end
 
