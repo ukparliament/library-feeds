@@ -28,7 +28,7 @@ task :post_to_bluesky => :environment do
   articles.each do |article|
     
     # ... we construct the text to post.
-    post_text = article.title + ' ' + article.link
+    post_text = article.title.title.sub( ': ', ' - ' ) + ' ' + article.link
     
     # ... we construct the link facets.
     facets = create_facets( post_text )
@@ -55,7 +55,7 @@ task :post_to_bluesky => :environment do
     uri = URI( 'https://bsky.social/xrpc/com.atproto.repo.createRecord' )
     headers = { 'Content-Type': 'application/json', 'Authorization': "Bearer #{access_jwt}" }
     response = Net::HTTP.post( uri, body, headers )
-    puts response.inspect
+    puts response.code
     
     # We record that the article has been posted.
     article.is_posted_to_bluesky = true
