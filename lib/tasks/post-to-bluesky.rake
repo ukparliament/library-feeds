@@ -55,7 +55,7 @@ task :post_to_bluesky => :environment do
     uri = URI( 'https://bsky.social/xrpc/com.atproto.repo.createRecord' )
     headers = { 'Content-Type': 'application/json', 'Authorization': "Bearer #{access_jwt}" }
     response = Net::HTTP.post( uri, body, headers )
-    puts response
+    puts response.inspect
     
     # We record that the article has been posted.
     article.is_posted_to_bluesky = true
