@@ -6,7 +6,7 @@ task :import_articles => :environment do
   feed_url = 'https://commonslibrary.parliament.uk/research/all-research/feed/'
   
   # We get the RSS.
-  doc = Nokogiri::XML(URI.open(feed_url))
+  doc = Nokogiri::XML( URI.open( feed_url ) )
   
   # For each item in the RSS ...
   doc.xpath( '//item' ).each do |item|
