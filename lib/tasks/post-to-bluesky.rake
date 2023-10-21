@@ -28,7 +28,7 @@ task :post_to_bluesky => :environment do
   articles.each do |article|
     
     # ... we construct the text to post.
-    post_text = article.title.title.sub( ': ', ' - ' ) + ' ' + article.link
+    post_text = article.title.sub( ': ', ' - ' ) + ' ' + article.link
     
     # ... we construct the link facets.
     facets = create_facets( post_text )
