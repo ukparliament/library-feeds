@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   
   get '/' => 'home#index', as: :root
-  get '/commons-library-feeds' => 'home#index', as: :home
+  get '/library-feeds' => 'home#index', as: :home
 end
