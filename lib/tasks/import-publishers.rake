@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 
 # # A task to import publishers.
 task :import_publishers => :environment do
