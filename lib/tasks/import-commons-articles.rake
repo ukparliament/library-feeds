@@ -1,6 +1,9 @@
 # ## A task to import briefings and insights from the House of Commons Library.
-task :import_articles => :environment do
+task :import_commons_articles => :environment do
   puts "importing articles from the commons library feed"
+  
+  # We find the publisher.
+  publisher = Publisher.find_by_name( 'House of Commons' )
   
   # We set the feed URL to import from.
   feed_url = 'https://commonslibrary.parliament.uk/research/all-research/feed/'
@@ -31,6 +34,7 @@ task :import_articles => :environment do
       article.link = article_link
       article.published_at = article_published_at
       article.guid = article_guid
+      article.publisher = publisher
       article.save
     end
   end
