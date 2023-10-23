@@ -3,16 +3,19 @@ require 'json'
 require 'uri'
 
 
-task :post_to_bluesky => :environment do
-  puts "posting articles"
-  
-  # We find all articles not posted to Bluesky.
-  articles = Article.where( 'is_posted_to_bluesky IS FALSE' )
-  puts "Posting #{articles.size} articles to Bluesky"
+task :post_commons_to_bluesky => :environment do
+  puts "posting commons articles"
   
   # We set up the authentication keys.
-  bluesky_handle = ENV['BLUESKY_HANDLE']
-  bluesky_app_password = ENV['BLUESKY_APP_PASSWORD']
+  bluesky_handle = ENV['COMMONS_BLUESKY_HANDLE']
+  bluesky_app_password = ENV['COMMONS_BLUESKY_APP_PASSWORD']
+  
+  # We find the publisher.
+  publisher = Publisher.find_by_name( 'House of Commons' )
+  
+  # We find all Commons articles not posted to Blueky.
+  articles = Article.where( "publisher_id =?", publisher.id ).where( 'is_posted_to_bluesky IS FALSE' )
+  puts "Posting #{articles.size} Commons articles to Bluesky"
   
   # We attempt to authenticate.
   uri = URI( 'https://bsky.social/xrpc/com.atproto.server.createSession' )
@@ -57,9 +60,13 @@ task :post_to_bluesky => :environment do
     response = Net::HTTP.post( uri, body, headers )
     puts response.code.class
     
-    # We record that the article has been posted.
-    article.is_posted_to_bluesky = true
-    article.save
+    # If the request is successful ...
+    if response.code == '200'
+
+      # ... we record that the article has been posted.
+      article.is_posted_to_bluesky = true
+      article.save
+    end
     
     # We pause for two seconds.
     sleep( 2 )
