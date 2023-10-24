@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   
   def index
+    @page_title = 'All articles'
     @articles = Article.find_by_sql(
       "
         SELECT a.*, p.name AS publisher_name
