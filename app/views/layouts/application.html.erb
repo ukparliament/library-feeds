@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CommonsLibrary</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+	<head>
+		<title>Library feeds - <%= @page_title %></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+	</head>
+	<body>
+		<header>
+			<%= content_tag( 'p', link_to( 'Library feeds', home_url ) ) %>
+			<nav>
+				<%= link_to( 'All articles', home_url ) %>
+				-
+				<%= link_to( 'By publisher', publisher_list_url  )%>
+			</nav>
+		</header>
+		<main>
+			<%= content_tag( 'h1', @page_title ) %>
+    		<%= yield %>
+		</main>
+	</body>
 </html>
