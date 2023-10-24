@@ -1,0 +1,6 @@
+<%= content_tag( 'p', "Listing #{@articles.size} articles." ) %>
+<% unless @articles.empty? -%>
+	<ol>
+		<%= render :partial => 'home/article', :collection => @articles %>
+	</ol>
+<% end -%>
