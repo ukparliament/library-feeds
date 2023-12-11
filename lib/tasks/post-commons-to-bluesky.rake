@@ -40,9 +40,11 @@ task :post_commons_to_bluesky => :environment do
     post = {
         "$type": "app.bsky.feed.post",
         "text": post_text,
-        "createdAt": Time.now.strftime('%Y-%m-%dT%H:%M:%S.%L%z'),
+        "createdAt": Time.now.strftime('%Y-%m-%dT%H:%M:%S.%L%Z'),
         "facets": facets,
     }
+    puts post
+    
 
     # We construct the body.
     body = {
