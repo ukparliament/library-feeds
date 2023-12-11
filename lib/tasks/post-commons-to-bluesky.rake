@@ -59,7 +59,7 @@ task :post_commons_to_bluesky => :environment do
     headers = { 'Content-Type': 'application/json', 'Authorization': "Bearer #{access_jwt}" }
     response = Net::HTTP.post( uri, body, headers )
     
-    puts response.inspect
+    puts response.body
     
     # If the request is successful ...
     if response.code == '200'
