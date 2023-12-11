@@ -58,7 +58,8 @@ task :post_commons_to_bluesky => :environment do
     uri = URI( 'https://bsky.social/xrpc/com.atproto.repo.createRecord' )
     headers = { 'Content-Type': 'application/json', 'Authorization': "Bearer #{access_jwt}" }
     response = Net::HTTP.post( uri, body, headers )
-    puts response.code.class
+    
+    puts response.code
     
     # If the request is successful ...
     if response.code == '200'
