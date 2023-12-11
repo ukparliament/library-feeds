@@ -40,7 +40,7 @@ task :post_commons_to_bluesky => :environment do
     post = {
         "$type": "app.bsky.feed.post",
         "text": post_text,
-        "createdAt": Time.now.strftime('%Y-%m-%dT%H:%M:%S.%L%Z'),
+        "createdAt": Time.now.iso8601,
         "facets": facets,
     }
     puts post
