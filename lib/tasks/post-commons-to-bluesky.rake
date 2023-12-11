@@ -43,8 +43,6 @@ task :post_commons_to_bluesky => :environment do
         "createdAt": Time.now.iso8601,
         "facets": facets,
     }
-    puts post
-    
 
     # We construct the body.
     body = {
@@ -59,9 +57,7 @@ task :post_commons_to_bluesky => :environment do
     # We attempt to post.
     uri = URI( 'https://bsky.social/xrpc/com.atproto.repo.createRecord' )
     headers = { 'Content-Type': 'application/json', 'Authorization': "Bearer #{access_jwt}" }
-    response = Net::HTTP.post( uri, body, headers )
-    
-    puts response.body
+    response = Net::HTTP.post( uri, body, headers )S
     
     # If the request is successful ...
     if response.code == '200'
