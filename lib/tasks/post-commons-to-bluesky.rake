@@ -73,7 +73,7 @@ task :post_commons_to_bluesky => :environment do
     else
       
       # ... we report failure.
-      puts 'Posting Commons Library briefing to Bluesky - failure'
+      puts "Posting Commons Library briefing to Bluesky - failure with response code #{response.code}"
     end
     
     # We pause for two seconds.
