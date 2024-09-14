@@ -61,10 +61,19 @@ task :post_commons_to_bluesky => :environment do
     
     # If the request is successful ...
     if response.code == '200'
+      
+      # ... we report success.
+      puts 'Posting Commons Library briefing to Bluesky - success'
 
-      # ... we record that the article has been posted.
+      # We record that the article has been posted.
       article.is_posted_to_bluesky = true
       article.save
+      
+    # Otherwise, if the request is not successful ...
+    else
+      
+      # ... we report failure.
+      puts 'Posting Commons Library briefing to Bluesky - failure'
     end
     
     # We pause for two seconds.
