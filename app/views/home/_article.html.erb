@@ -1,6 +1,7 @@
 <li>
 	<%= content_tag( 'h2', link_to( article.title, article.link ) ) %>
 	<%= content_tag( 'p', "Published at: #{article.published_at.strftime( $DATE_TIME_DISPLAY_FORMAT )}" ) %>
+	<%= content_tag( 'p', "Imported at: #{article.created_at.strftime( $DATE_TIME_DISPLAY_FORMAT )}" ) %>
 	<%= content_tag( 'p', "Publisher: #{article.publisher_name}" ) %>
 	<%= content_tag( 'p', "Author: #{article.author}" ) %>
 	<%= content_tag( 'p', "Published to Bluesky: #{article.is_posted_to_bluesky}" ) %>
