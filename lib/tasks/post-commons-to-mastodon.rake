@@ -27,7 +27,7 @@ task :post_commons_to_mastodon => :environment do
     post_text = parser.escape( post_text )
     
     # We construct the URI.
-    uri = URI( "https://botsin.space/api/v1/statuses?status=#{post_text}" )
+    uri = URI( "https://mastodon.me.uk/api/v1/statuses?status=#{post_text}" )
     
     # We create the client.
     http = Net::HTTP.new( uri.host, uri.port )
