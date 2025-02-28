@@ -1,3 +1,5 @@
+require 'open-uri'
+
 # ## A task to import briefings and insights from the House of Lords Library.
 task :import_lords_articles => :environment do
   puts "importing articles from the lords library feed"

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 # ## A task to import briefings and insights from POST.
 task :import_post_articles => :environment do
   puts "importing articles from POST"
