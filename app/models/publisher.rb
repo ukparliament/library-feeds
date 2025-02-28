@@ -1,3 +1,10 @@
+# == Schema Information
+#
+# Table name: publishers
+#
+#  id   :integer          not null, primary key
+#  name :string(500)      not null
+#
 class Publisher < ApplicationRecord
   
   def articles
