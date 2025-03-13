@@ -23,6 +23,10 @@ gem "bootsnap", require: false
 
 # Add this separately now
 gem "csv"
+gem "irb"
+
+# Exception handling
+gem "rollbar"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
