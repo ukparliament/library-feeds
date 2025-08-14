@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   
   get '/library-feeds/publishers' => 'publisher#index', as: :publisher_list
   get '/library-feeds/publishers/:publisher' => 'publisher#show', as: :publisher_show
+  
+  get '/library-feeds/meta' => 'meta#index', as: :meta_list
+  get '/library-feeds/meta/cookies' => 'meta#cookies', as: :meta_cookies
 end
