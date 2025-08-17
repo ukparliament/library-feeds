@@ -1,0 +1,9 @@
+<li class="list-group-item">
+	<%= content_tag( 'h2', link_to( publication.title, publication.link ) ) %>
+	<%= content_tag( 'p', "Published at: #{publication.published_at.strftime( $DATE_TIME_DISPLAY_FORMAT )}" ) %>
+	<%= content_tag( 'p', "Imported at: #{publication.created_at.strftime( $DATE_TIME_DISPLAY_FORMAT )}" ) if publication.created_at %>
+	<%= content_tag( 'p', "Publisher: #{publication.publisher_name}" ) %>
+	<%= content_tag( 'p', "Author: #{publication.author}" ) %>
+	<%= content_tag( 'p', "Published to Bluesky: #{publication.is_posted_to_bluesky}" ) %>
+	<%= content_tag( 'p', "Published to Mastodon: #{publication.is_posted_to_mastodon}" ) %>
+</li>
