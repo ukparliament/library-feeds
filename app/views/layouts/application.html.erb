@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Library feeds - <%= @page_title %></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<%= csrf_meta_tags %>
-		<%= csp_meta_tag %>
+		<%= render :partial => 'library_design/head/head' %>
+		<%= tag( 'base', :href => 'https://api.parliament.uk/library-feeds' )if Rails.env.production? %>
 	</head>
-	<body>
-		<header>
-			<%= content_tag( 'p', link_to( 'Library feeds', home_url ) ) %>
-			<nav>
-				<%= link_to( 'All articles', home_url ) %>
-				-
-				<%= link_to( 'By publisher', publisher_list_url  )%>
-			</nav>
-		</header>
-		<main>
-			<%= content_tag( 'h1', @page_title ) %>
-    		<%= yield %>
-		</main>
-		<footer>
-			<p>
-				<a href="https://www.parliament.uk/site-information/accessibility/">Accessibility statement</a>
-				-
-				<%= link_to( 'Cookies', meta_cookies_url )  %>
-				-
-				<a href="https://commonslibrary.parliament.uk/privacy-policy/">Privacy notice</a>
-			</p>
-		</footer>
+	<body class="section-<%= @section %> brand-bicameral">
+		<%= render 'layouts/header/header' %>
+		<main class="container block block-page" id="main-content">
+			<div class="inner-content container">
+				<div class="reading-width">
+					<%= content_tag( 'h1', @page_title || $SITE_TITLE ) %>
+	      			<%= yield %>
+				</div>
+	  		</div>
+	    </main>
+		<%= render 'library_design/footer' %>
 	</body>
 </html>
