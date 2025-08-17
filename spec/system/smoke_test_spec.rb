@@ -9,6 +9,6 @@ describe "smoke test", type: :system do
 
   it 'home page loads' do
     visit root_path
-    expect(page).to have_content("Library feeds")
+    expect(page).to have_content("Library Feeds")
   end
 end
