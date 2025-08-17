@@ -16,6 +16,7 @@ class PublisherController < ApplicationController
     
     @page_title = @publisher.name
     @description = "Publications published by #{@publisher.name}."
+    @rss_url = publisher_show_url( :format => 'rss' )
     @crumb << { label: 'Publishers', url: publisher_list_url }
     @crumb << { label: @page_title, url: nil }
     @section = 'publishers'
