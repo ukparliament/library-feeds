@@ -3,18 +3,18 @@ require 'json'
 require 'uri'
 
 
-task :post_commons_to_mastodon => :environment do
-  puts "posting commons articles"
+task :post_post_to_mastodon => :environment do
+  puts "posting POST articles"
   
   # We set up the authentication token.
-  bearer_token = ENV['COMMONS_BEARER_TOKEN']
+  bearer_token = ENV['POST_BEARER_TOKEN']
   
   # We find the publisher.
-  publisher = Publisher.find_by_name( 'House of Commons' )
+  publisher = Publisher.find_by_name( 'POST' )
   
   # We find all articles not posted to Mastodon.
   articles = Article.where( "publisher_id =?", publisher.id ).where( 'is_posted_to_mastodon IS FALSE' )
-  puts "Posting #{articles.size} Commons articles to Mastodon"
+  puts "Posting #{articles.size} POST articles to Mastodon"
   
   # For each article ...
   articles.each do |article|
