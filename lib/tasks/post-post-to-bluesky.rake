@@ -105,7 +105,7 @@ def create_facets( text )
       'features' => [
         {
           '$type' => 'app.bsky.richtext.facet#link',
-          'uri' => m.join("").strip.sub( 'httpsc', 'https://c' ) # this is the matched link
+          'uri' => m.join("").strip.sub( 'httpsp', 'https://p' ) # this is the matched link
         },
       ],
     )
