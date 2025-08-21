@@ -42,7 +42,6 @@ task :post_commons_to_mastodon => :environment do
 
     # We make the request.
     request = http.request( request )
-    puts request.body
     
     # If the request is successful ...
     if request.code == '200'
