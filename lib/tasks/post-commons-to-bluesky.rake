@@ -23,14 +23,9 @@ task :post_commons_to_bluesky => :environment do
   headers = { 'Content-Type': 'application/json' }
   response = Net::HTTP.post( uri, body.to_json, headers )
   
-  puts "response: #{response}"
-  
   # We grab the access tokens from the JSON response.
   access_jwt = JSON.parse( response.body )['accessJwt']
   did = JSON.parse( response.body )['did']
-    
-    puts "access_jwt: #{access_jwt}"
-    puts "did: #{did}"
   
   # For each article ...
   articles.each do |article|
@@ -38,10 +33,8 @@ task :post_commons_to_bluesky => :environment do
     # ... we construct the text to post.
     post_text = article.title.sub( ': ', ' - ' ) + ' ' + article.link
     
-    puts "commons post text: #{post_text}"
-    
     # ... we construct the link facets.
-    facets = create_facets( post_text )
+    facets = create_facets_commons( post_text )
     
     # We construct the post.
     post = {
@@ -60,8 +53,6 @@ task :post_commons_to_bluesky => :environment do
     
     # We convert the body to JSON.
     body = body.to_json
-    
-    puts "body: #{body}"
     
     # We attempt to post.
     uri = URI( 'https://bsky.social/xrpc/com.atproto.repo.createRecord' )
@@ -93,7 +84,7 @@ end
 # ## A method to construct the link facet for Bluesky.
 # [ATProtocol documentation](https://atproto.com/blog/create-post#mentions-and-links)
 # [Code copied and adapted from GitHub](https://github.com/ShreyanJain9/bskyrb/issues/3)
-def create_facets( text )
+def create_facets_commons( text )
   
   # We create an array to hold the facets.
   facets = []
