@@ -34,7 +34,7 @@ task :post_commons_to_bluesky => :environment do
     post_text = article.title.sub( ': ', ' - ' ) + ' ' + article.link
     
     # ... we construct the link facets.
-    facets = create_facets( post_text )
+    facets = create_facets_commons( post_text )
     
     # We construct the post.
     post = {
@@ -84,7 +84,7 @@ end
 # ## A method to construct the link facet for Bluesky.
 # [ATProtocol documentation](https://atproto.com/blog/create-post#mentions-and-links)
 # [Code copied and adapted from GitHub](https://github.com/ShreyanJain9/bskyrb/issues/3)
-def create_facets( text )
+def create_facets_commons( text )
   
   # We create an array to hold the facets.
   facets = []
