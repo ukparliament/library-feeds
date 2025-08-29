@@ -23,15 +23,22 @@ task :post_commons_to_bluesky => :environment do
   headers = { 'Content-Type': 'application/json' }
   response = Net::HTTP.post( uri, body.to_json, headers )
   
+  puts "response: #{response}"
+  
   # We grab the access tokens from the JSON response.
   access_jwt = JSON.parse( response.body )['accessJwt']
   did = JSON.parse( response.body )['did']
+    
+    puts "access_jwt: #{access_jwt}"
+    puts "did: #{did}"
   
   # For each article ...
   articles.each do |article|
     
     # ... we construct the text to post.
     post_text = article.title.sub( ': ', ' - ' ) + ' ' + article.link
+    
+    puts "commons post text: #{post_text}"
     
     # ... we construct the link facets.
     facets = create_facets( post_text )
@@ -53,6 +60,8 @@ task :post_commons_to_bluesky => :environment do
     
     # We convert the body to JSON.
     body = body.to_json
+    
+    puts "body: #{body}"
     
     # We attempt to post.
     uri = URI( 'https://bsky.social/xrpc/com.atproto.repo.createRecord' )
