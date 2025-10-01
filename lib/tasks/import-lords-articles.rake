@@ -23,8 +23,8 @@ task :import_lords_articles => :environment do
     article_published_at = item.xpath( 'pubDate/text()' ).to_s
     article_guid = item.xpath( 'guid/text()' ).to_s
     
-    # We attempt to find the article ...
-    article = Article.where( "guid = ?", article_guid ).where( "published_at =?", article_published_at ).first
+    # We attempt to find the article by its title ...
+    article = Article.where( "title = ?", article_title ).first
     
     # Unless we find the article ...
     unless article
