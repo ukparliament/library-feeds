@@ -6,4 +6,5 @@
 	<%= content_tag( 'p', "Author: #{publication.author}" ) %>
 	<%= content_tag( 'p', "Published to Bluesky: #{publication.is_posted_to_bluesky}" ) %>
 	<%= content_tag( 'p', "Published to Mastodon: #{publication.is_posted_to_mastodon}" ) %>
+	<%= content_tag( 'p', "GUID: #{link_to( publication.guid, publication.guid )}".html_safe ) %>
 </li>
