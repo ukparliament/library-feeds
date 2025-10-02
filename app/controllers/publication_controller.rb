@@ -6,7 +6,7 @@ class PublicationController < ApplicationController
         SELECT a.*, p.name AS publisher_name
         FROM articles a, publishers p
         WHERE a.publisher_id = p.id
-        ORDER BY a.published_at DESC
+        ORDER BY a.created_at DESC
       "
     )
     @page_title = 'All publications'

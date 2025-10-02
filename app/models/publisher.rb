@@ -14,7 +14,7 @@ class Publisher < ApplicationRecord
           FROM articles a, publishers p
           WHERE a.publisher_id = p.id
           AND p.id = #{self.id}
-          ORDER BY a.published_at DESC
+          ORDER BY a.created_at DESC
         "
       )
   end
