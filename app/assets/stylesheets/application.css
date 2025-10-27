@@ -1,9 +1,7 @@
 /* This is just for app specific overrides and extras */
 
 /* Main navigation active states */
-body.section-publications nav#header-nav a.publications {
-	border-bottom-color: #fff;
-}
+body.section-publications nav#header-nav a.publications,
 body.section-publishers nav#header-nav a.publishers {
 	border-bottom-color: #fff;
 }
