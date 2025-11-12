@@ -10,7 +10,7 @@ gem "rails", "~> 8.1"
 gem "propshaft"
 
 # Design system gem
-gem "library_design", github: "ukparliament/design-assets", glob: 'library_design/*.gemspec', tag: "0.5.0"
+gem "library_design", github: "ukparliament/design-assets", glob: 'library_design/*.gemspec', tag: "0.5.3"
 
 # Postgres driver
 gem 'pg'
