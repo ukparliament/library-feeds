@@ -4,7 +4,7 @@ class PublisherController < ApplicationController
     @publishers = Publisher.all
     
     @page_title = 'Publishers'
-    @descriptions = 'All publishers'
+    @description = 'All publishers.'
     @crumb << { label: @page_title, url: nil }
     @section = 'publishers'
   end
