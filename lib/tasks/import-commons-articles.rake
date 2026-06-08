@@ -8,7 +8,7 @@ task :import_commons_articles => :environment do
   publisher = Publisher.find_by_name( 'House of Commons' )
   
   # We set the feed URL to import from.
-  feed_url = 'https://commonslibrary.parliament.uk/research/all-research/feed/'
+  feed_url = 'https://commonslibrary.parliament.uk/briefings/all-research/feed/'
   
   # We get the RSS.
   doc = Nokogiri::XML( URI.open( feed_url ) )
