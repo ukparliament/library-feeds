@@ -10,7 +10,7 @@ gem "rails", "~> 8.1"
 gem "propshaft"
 
 # Design system gem
-gem "library_design", github: "ukparliament/design-assets", glob: 'library_design/*.gemspec', tag: "0.6.10"
+gem "library_design", github: "ukparliament/design-assets", glob: 'library_design/*.gemspec', tag: "0.6.14"
 
 # Postgres driver
 gem 'pg'
@@ -27,6 +27,7 @@ gem "bootsnap", require: false
 # Add this separately now
 gem "csv"
 gem "irb"
+gem "json", "< 3"
 
 # Exception handling
 gem "rollbar"
