@@ -27,7 +27,7 @@ gem "bootsnap", require: false
 # Add this separately now
 gem "csv"
 gem "irb"
-gem "json", "< 3"
+gem "json"
 
 # Exception handling
 gem "rollbar"
